@@ -1,0 +1,7 @@
+---
+
+- name: Install CNTLM for enterprise proxy
+  tags: cntlm
+  yum: >
+    name={{ cntlm_package_file }}
+    state=present
