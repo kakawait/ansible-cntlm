@@ -3,5 +3,5 @@
 - name: Install CNTLM for enterprise proxy
   tags: cntlm
   apt: >
-    name={{ cntlm_package_file }}
+    deb="https://downloads.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version_sourceforge }}_amd64.deb"
     state=present

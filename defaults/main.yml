@@ -1,5 +1,18 @@
 ---
 
+cntlm_version: 0.92.3
+# per ansible_os_family versions (on sourceforge)
+cntlm_os_family_versions:
+  Debian: {
+      0.92.3: "0.92.3",
+  }
+  RedHat: {
+      0.92.3: "0.92.3-1",
+  }
+# the corresponding version on sourceforge
+cntlm_version_sourceforge: "{{ cntlm_os_family_versions[ansible_os_family][cntlm_version] }}"
+
+
 cntlm_config_template: cntlm.conf.j2
 
 cntlm_username: testuser

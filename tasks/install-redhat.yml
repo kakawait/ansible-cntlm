@@ -3,5 +3,5 @@
 - name: Install CNTLM for enterprise proxy
   tags: cntlm
   yum: >
-    name={{ cntlm_package_file }}
+    name="https://downloads.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version_sourceforge }}.x86_64.rpm"
     state=present
