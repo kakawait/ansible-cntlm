@@ -6,12 +6,9 @@ Install and configure [CNTLM](http://cntlm.sourceforge.net/).
 
 In most case we need CNTLM to set enterprise proxy in order to acces to internet network. By accepting its assumption it will be strange that the ansible-cntlm role try to download last CNTLM version from internet.
 
-During beta you **MUST** provide CNTLM package (rpm or deb) from http://sourceforge.net/projects/cntlm/files/ and register proper variable.
-
-* `cntlm_package_file`: Configure path to package file (rpm or deb) (`string`, NO DEFAULT)
-
 ## Role variables
 
+* `cntlm_version`: Configure CNTLM version to install (`string`, default: `0.92.3`)
 * `cntlm_config_template`: Configure path to template for CNTLM configuration file *cntlm.conf* (`string`, default: `cntlm.conf.j2`)
 * `cntlm_username`: Configure cntlm username (`string`, default: `testuser`)
 * `cntlm_domain`: Configure cntlm domain (`string`, default: `corp-uk`)
@@ -32,7 +29,7 @@ None.
     ---
     - hosts: localhost
       roles:
-        - { role: ansible-cntlm, cntlm_package_file: files/cntlm-0.92.3-1.x86_64.rpm }
+        - { role: ansible-cntlm }
 
 ## License
 
