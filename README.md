@@ -8,6 +8,9 @@ In most case we need CNTLM to set enterprise proxy in order to acces to internet
 
 ## Role variables
 
+* `cntlm_package_file`: Configure path to package file (rpm or deb) (string, NO DEFAULT). If not specified, CNTLM is downloaded from sourceforge.
+* `cntlm_config_file`: Name of the configuration file of CNTLM (`string`, default: `/etc/cntlm.conf`)
+* `cntlm_service_name`: Name of the CNTLM service (`string`, default: `cntlmd`)
 * `cntlm_version`: Configure CNTLM version to install (`string`, default: `0.92.3`)
 * `cntlm_config_template`: Configure path to template for CNTLM configuration file *cntlm.conf* (`string`, default: `cntlm.conf.j2`)
 * `cntlm_username`: Configure cntlm username (`string`, default: `testuser`)

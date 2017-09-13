@@ -1,7 +1,15 @@
 ---
 
-- name: Install CNTLM for enterprise proxy
+- name: Install CNTLM for enterprise proxy (local)
+  tags: cntlm
+  apt:
+     deb: /tmp/{{ cntlm_package_file | basename }}
+     state: present
+  when: cntlm_package_file is defined
+
+- name: Install CNTLM for enterprise proxy (sourceforge)
   tags: cntlm
   apt: >
     deb="https://downloads.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version_sourceforge }}_amd64.deb"
     state=present
+  when: cntlm_package_file is not defined
