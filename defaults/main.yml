@@ -1,5 +1,8 @@
 ---
 
+cntlm_config_file: /etc/cntlm.conf
+cntlm_service_name: cntlmd
+
 cntlm_version: 0.92.3
 # per ansible_os_family versions (on sourceforge)
 cntlm_os_family_versions:

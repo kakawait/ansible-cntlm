@@ -1,7 +1,15 @@
 ---
 
-- name: Install CNTLM for enterprise proxy
+- name: Install CNTLM for enterprise proxy (local)
+  tags: cntlm
+  yum:
+     name: /tmp/{{ cntlm_package_file | basename }}
+     state: present
+  when: cntlm_package_file is defined
+
+- name: Install CNTLM for enterprise proxy (sourceforge)
   tags: cntlm
   yum: >
     name="https://downloads.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version_sourceforge }}.x86_64.rpm"
     state=present
+  when: cntlm_package_file is not defined

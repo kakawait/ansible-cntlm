@@ -1,5 +1,11 @@
 ---
 
+- name: Copy package to server
+  copy:
+     src: "{{ cntlm_package_file }}"
+     dest: "/tmp/{{ cntlm_package_file | basename }}"
+  when: cntlm_package_file is defined
+
 - include: install-redhat.yml
   when: ansible_os_family == 'RedHat'
 
