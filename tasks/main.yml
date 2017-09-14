@@ -18,10 +18,10 @@
     dest={{ cntlm_config_file }}
     owner=0
     group=0
-    mode=0644
-  notify: service restart {{ cntlm_service_name }}
+    mode=0600
+  notify: Restart CNTLM service
 
-- name: Ensure {{ cntlm_service_name }} service is running
+- name: Ensure CNTLM service is running
   service: >
     name={{ cntlm_service_name }} 
     state=started 
