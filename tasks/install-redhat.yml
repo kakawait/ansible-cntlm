@@ -13,3 +13,17 @@
     name="https://downloads.sourceforge.net/project/cntlm/cntlm/cntlm%20{{ cntlm_version }}/cntlm_{{ cntlm_version_sourceforge }}.x86_64.rpm"
     state=present
   when: cntlm_package_file is not defined
+
+- name: Ensure run directory exists with right permissions
+  file:
+    group: cntlm
+    mode: "g+w"
+    owner: cntlm
+    path: "/var/run/cntlm"
+    recurse: false
+    state: "directory"
+
+- name: Restart CNTLM service
+  service:
+    state=restarted
+    name={{ cntlm_service_name }}
